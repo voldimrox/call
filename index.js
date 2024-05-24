@@ -1,10 +1,9 @@
 // index.js
 
-// Variável para armazenar a última informação recebida via HTTP POST
-let lastData = '';
+let lastData = ''; // Variável para armazenar a última informação recebida via HTTP POST
 
-// Configuração do servidor HTTP
 const http = require('http');
+
 const server = http.createServer((req, res) => {
   if (req.method === 'POST') {
     let body = '';
@@ -14,7 +13,7 @@ const server = http.createServer((req, res) => {
     req.on('end', () => {
       lastData = body; // Armazenando a última informação recebida
       console.log('Mensagem recebida via HTTP POST:', lastData); // Gerando um log da mensagem recebida
-      res.end(); // Respondendo à solicitação POST
+      res.end('Mensagem recebida com sucesso.'); // Respondendo à solicitação POST
     });
   } else if (req.method === 'GET') {
     console.log('Solicitação HTTP GET recebida');
@@ -23,10 +22,8 @@ const server = http.createServer((req, res) => {
   }
 });
 
-// Definindo a porta em que o servidor irá escutar
 const PORT = process.env.PORT || 3000;
 
-// Iniciando o servidor
 server.listen(PORT, () => {
   console.log(`Servidor rodando em http://localhost:${PORT}`);
 });
