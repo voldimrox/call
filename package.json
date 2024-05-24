@@ -1,0 +1,14 @@
+{
+  "name": "my-http-server",
+  "version": "1.0.0",
+  "description": "A simple HTTP server for handling POST and GET requests.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Seu Nome",
+  "license": "MIT",
+  "dependencies": {
+    "http": "^0.0.1"
+  }
+}
